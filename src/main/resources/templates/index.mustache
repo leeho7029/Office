@@ -8,3 +8,15 @@
 <h1>홈입니다</h1>
 </body>
 </html>
+<@_categoryList cateId=a>
+<#assign main=page.list>
+<#assign mainName=main.name
+</@_categoryList>
+<@_categoryList cateId=a.name>
+<#assign sub=page.list>
+<#assign subCode=sub.code
+</@_categoryList>
+<#list Mainsub as a>
+    <a href="research/index.html?subject=${a.name}&tab=${a.code}"
+</#list>
+
