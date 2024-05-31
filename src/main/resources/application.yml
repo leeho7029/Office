@@ -12,13 +12,13 @@ spring:
   mustache:
     check-template-location: true
     prefix: classpath:/templates/
-    suffix: .mustache
+    suffix: .html
     servlet:
       cache: false
   mvc:
     servlet:
       path: /
-    static-path-pattern: /static/**
+    static-path-pattern: static/**
     hiddenmethod:
       filter:
         enabled: true
