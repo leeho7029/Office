@@ -21,3 +21,6 @@ jobs:
           branch: ${{ github.ref }}  # 푸시된 브랜치를 대상으로 PR 생성
           title: "자동PR GithubAction"
           body: "자동으로 PR됨"
+      - name: Save PR URL
+        id: pr_url
+        run: echo "PR URL - ${{ steps.create-pull-request.outputs.pull-request-url }}"
