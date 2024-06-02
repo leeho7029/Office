@@ -12,7 +12,7 @@ jobs:
       - name: Configure git
         run: |
           git config user.name "leeho7029"
-          git config user.email "80402477+leeho7029@users.noreply.github.com."
+          git config user.email "leeho7029@users.noreply.github.com."
       - name: Make changes
         run: |
           # 여기에 변경 사항을 적용하는 스크립트를 작성합니다
