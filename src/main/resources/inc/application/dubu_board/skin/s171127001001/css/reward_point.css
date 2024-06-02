@@ -1,0 +1,17 @@
+/*Add css for Reward point*/
+.reward_point{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.ico_point{
+    display: inline-block;
+    text-align: left;
+    background: url(../images/point_ico.png) 0 0px no-repeat;
+    width:18px;
+    height:18px;
+    vertical-align:middle;
+    margin-right:8px;
+}
+.txt_point{
+    color:#ff3955;
+}

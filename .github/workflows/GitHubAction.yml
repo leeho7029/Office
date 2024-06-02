@@ -24,4 +24,3 @@ jobs:
       - name: Save PR URL
         id: pr_url
         run: echo "PR URL - ${{ steps.create-pull-request.outputs.pull-request-url }}"
-
