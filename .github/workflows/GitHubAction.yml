@@ -1,26 +1,16 @@
-name: Office-Actions
-on:
-  push:
-    branches:
-      - master
-      - feature/*
-  pull_request:
-    branches:
-      - master
-      - feature/*
+name: "Create PR"
+on: push
+
 jobs:
-  create-pull-request:
+  create-pr-on-push:
+    if: ${{ (contains(github.event.head_commit.message, 'BUG') || contains(github.event.head_commit.message, 'IMP'))  && github.event.pull_request.merged == false }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+      - uses: actions/checkout@1.0.0
+      - name: Create pull request
+        uses: thomaseizinger/create-pull-request@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Auto PR: ${GITHUB_SHA}"
-          branch: ${{ github.ref }}  # 푸시된 브랜치를 대상으로 PR 생성
-          title: "자동PR GithubAction"
-          body: "자동으로 PR됨"
-      - name: Save PR URL
-        id: pr_url
-        run: echo "PR URL - ${{ steps.create-pull-request.outputs.pull-request-url }}"
+          GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
+          head: ${{ github.ref }}
+          base: main
+          title: ${{ github.event.head_commit.message }}
