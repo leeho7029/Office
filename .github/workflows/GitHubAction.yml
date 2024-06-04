@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
@@ -22,7 +21,6 @@ jobs:
           branch: ${{ github.ref }}  # 푸시된 브랜치를 대상으로 PR 생성
           title: "자동PR GithubAction"
           body: "자동으로 PR됨"
-          base: master
       - name: Save PR URL
         id: pr_url
         run: echo "PR URL - ${{ steps.create-pull-request.outputs.pull-request-url }}"
